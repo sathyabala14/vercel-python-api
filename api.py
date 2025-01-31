@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+# Enable CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -12,6 +13,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# ✅ Check if JSON file exists before loading
 json_file = "q-vercel-python.json"
 if os.path.exists(json_file):
     with open(json_file, "r") as file:
